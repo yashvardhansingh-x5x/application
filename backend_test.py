@@ -188,7 +188,7 @@ def verify_mongodb_data():
     print("\n🔍 Verifying MongoDB data persistence...")
     
     client, db = get_mongo_client()
-    if not client or not db:
+    if client is None or db is None:
         return False
     
     try:
@@ -245,7 +245,7 @@ def test_services_auto_initialization():
     print("\n🔍 Testing services auto-initialization...")
     
     client, db = get_mongo_client()
-    if not client or not db:
+    if client is None or db is None:
         return False
     
     try:
