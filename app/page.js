@@ -449,6 +449,13 @@ const ServicesSection = () => {
 
         {loading ? (
           <div className="text-center">Loading services...</div>
+        ) : error ? (
+          <div className="text-center">
+            <p className="text-muted-foreground mb-4">Unable to load services. Please try again.</p>
+            <Button onClick={fetchServices} variant="outline">Retry</Button>
+          </div>
+        ) : services.length === 0 ? (
+          <div className="text-center text-muted-foreground">No services available.</div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
