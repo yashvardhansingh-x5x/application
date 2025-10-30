@@ -402,6 +402,7 @@ const AboutSection = () => {
 const ServicesSection = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchServices();
@@ -410,12 +411,17 @@ const ServicesSection = () => {
   const fetchServices = async () => {
     try {
       const response = await fetch('/api/services');
+      if (!response.ok) {
+        throw new Error('Failed to fetch services');
+      }
       const data = await response.json();
       if (data.success) {
         setServices(data.data);
+        setError(null);
       }
     } catch (error) {
       console.error('Error fetching services:', error);
+      setError(error.message);
     } finally {
       setLoading(false);
     }
