@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 import time
 
 # Get base URL from environment
-BASE_URL = "https://localhost:3000"
+BASE_URL = "http://localhost:3000"
 API_BASE = f"{BASE_URL}/api"
 
 # MongoDB connection
