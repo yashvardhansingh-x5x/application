@@ -103,7 +103,6 @@ def test_contact_form_valid():
             f"{API_BASE}/contact", 
             json=contact_data,
             headers={'Content-Type': 'application/json'},
-            verify=False,
             timeout=10
         )
         
@@ -155,7 +154,6 @@ def test_contact_form_invalid():
             f"{API_BASE}/contact", 
             json=invalid_data,
             headers={'Content-Type': 'application/json'},
-            verify=False,
             timeout=10
         )
         
